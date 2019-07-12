@@ -1,0 +1,24 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: oauth2-server-msa-jdbc
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/msa_jdbc?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+
+#  session:
+#    store-type: none
+#
+#server:
+#  session:
+#    timeout: 600
+
+  security:
+    user:
+      name: ivy
+      password: ffffff
+
