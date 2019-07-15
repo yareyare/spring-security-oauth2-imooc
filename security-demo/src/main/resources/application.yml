@@ -1,5 +1,5 @@
 server:
-  port: 9000
+  port: 8060
 
 spring:
   application:
@@ -17,8 +17,8 @@ spring:
 #  session:
 #    timeout: 600
 
-  security:
-    user:
-      name: ivy
-      password: ffffff
+#  security:
+#    user:
+#      name: ivy
+#      password: aaa
 

@@ -26,17 +26,17 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.ivy.security</groupId>
-            <artifactId>security-browser</artifactId>
-            <version>${ivy.security.version}</version>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>com.ivy.security</groupId>-->
+        <!--<artifactId>security-browser</artifactId>-->
+        <!--<version>${ivy.security.version}</version>-->
+        <!--</dependency>-->
 
-        <dependency>
-            <groupId>com.ivy.security</groupId>
-            <artifactId>security-authorize</artifactId>
-            <version>${ivy.security.version}</version>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>com.ivy.security</groupId>-->
+        <!--<artifactId>security-authorize</artifactId>-->
+        <!--<version>${ivy.security.version}</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
