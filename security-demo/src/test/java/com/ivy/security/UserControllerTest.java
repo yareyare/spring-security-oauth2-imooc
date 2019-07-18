@@ -3,12 +3,14 @@
  */
 package com.ivy.security;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -16,6 +18,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.nio.charset.Charset;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
@@ -23,6 +26,7 @@ import java.util.Date;
 /**
  * @author ivy on 2019-07-11.
  */
+@Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserControllerTest {
@@ -112,5 +116,25 @@ public class UserControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.delete("/users/1")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
+    public void whenUploadSuccess() throws Exception {
+        String result = mockMvc.perform(MockMvcRequestBuilders.fileUpload("/file")
+                .file(new MockMultipartFile("file", "test.txt", "multipart/form-data", "hello"
+                        .getBytes(Charset.defaultCharset()))))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn().getResponse().getContentAsString();
+        log.info(result);
+    }
+
+    @Test
+    public void whenDownloadSuccess() throws Exception {
+        String result = mockMvc.perform(MockMvcRequestBuilders.fileUpload("/file")
+                .file(new MockMultipartFile("file", "test.txt", "multipart/form-data", "hello"
+                        .getBytes(Charset.defaultCharset()))))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn().getResponse().getContentAsString();
+        log.info(result);
     }
 }

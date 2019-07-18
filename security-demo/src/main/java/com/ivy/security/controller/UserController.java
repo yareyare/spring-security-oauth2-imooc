@@ -72,6 +72,7 @@ public class UserController {
     @GetMapping(value = "/user/{id:\\d+}")
     public User getUser(@PathVariable String id) {
 
+        //抛出异常后，interceptor postHandle() 将不会执行
 //        throw new UserNotExistException();
 
         log.info("进入 getUser 服务");

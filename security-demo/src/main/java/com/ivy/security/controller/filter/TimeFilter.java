@@ -17,21 +17,21 @@ public class TimeFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        log.info("time filter init");
+        log.info("【fileter.init】time filter init");
     }
 
     @Override
     public void destroy() {
-        log.info("time filter destory");
+        log.info("【fileter.destroy】time filter destory");
     }
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
-        log.info("time filter start");
+        log.info("【fileter.doFilter】time filter start");
         long start = System.currentTimeMillis();
         filterChain.doFilter(request, response);
-        log.info("timeFilter 耗时：{}", System.currentTimeMillis() - start);
-        log.info("time filter finish");
+        log.info("【fileter.doFilter】timeFilter 耗时：{}", System.currentTimeMillis() - start);
+        log.info("【fileter.doFilter】time filter finish");
 
     }
 }
