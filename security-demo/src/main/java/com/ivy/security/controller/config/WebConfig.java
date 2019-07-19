@@ -7,7 +7,6 @@ import com.ivy.security.controller.filter.TimeFilter;
 import com.ivy.security.interceptor.TimeInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -26,11 +25,11 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(timeInterceptor);
+//        registry.addInterceptor(timeInterceptor);
     }
 
     //添加第三方的Filter
-    @Bean
+//    @Bean
     public FilterRegistrationBean timeFilter() {
         FilterRegistrationBean registrationBean = new FilterRegistrationBean();
         registrationBean.setFilter(new TimeFilter());
@@ -41,4 +40,12 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         registrationBean.setUrlPatterns(urls);
         return registrationBean;
     }
+
+//    @Override
+//	public void configureAsyncSupport(AsyncSupportConfigurer configurer) {
+//		configurer.registerCallableInterceptors(interceptors); // 设置Callable<T>形式的拦截器
+//		configurer.registerDeferredResultInterceptors(interceptors); // 设置DeferredResult<T>形式的拦截器
+//		configurer.setDefaultTimeout(timeout);	// 设置处理线程的默认超时时间
+//		configurer.setTaskExecutor(taskExecutor); // 设置处理线程的线程池
+//	}
 }
