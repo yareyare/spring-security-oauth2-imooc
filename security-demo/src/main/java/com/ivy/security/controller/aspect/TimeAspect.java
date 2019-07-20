@@ -6,8 +6,6 @@ package com.ivy.security.controller.aspect;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
@@ -15,8 +13,8 @@ import java.util.Arrays;
  * @author ivy on 2019-07-18.
  */
 @Slf4j
-@Aspect
-@Component
+//@Aspect
+//@Component
 public class TimeAspect {
 
     @Around("execution(* com.ivy.security.controller.UserController.*(..))")

@@ -10,7 +10,7 @@ import org.springframework.web.context.request.async.DeferredResult;
 
 @Slf4j
 @RestController
-@RequestMapping("/orders")
+@RequestMapping
 public class AsyncController {
 
     @Autowired
@@ -18,7 +18,7 @@ public class AsyncController {
     @Autowired
     private DeferredResultHolder deferredResultHolder;
 
-    @GetMapping
+    @GetMapping("/orders")
     public DeferredResult<String> order() {
         log.info("主线程开始...");
 

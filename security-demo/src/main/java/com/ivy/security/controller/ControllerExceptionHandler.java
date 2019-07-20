@@ -7,7 +7,10 @@ import com.ivy.security.exception.UserNotExistException;
 import org.springframework.format.datetime.DateFormatter;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +18,7 @@ import java.util.Map;
 /**
  * @author ivy on 2019-07-14.
  */
-@ControllerAdvice
+//@ControllerAdvice
 public class ControllerExceptionHandler {
 
     @ExceptionHandler(UserNotExistException.class)

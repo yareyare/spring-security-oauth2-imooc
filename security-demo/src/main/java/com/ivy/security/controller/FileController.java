@@ -18,12 +18,12 @@ import java.io.*;
  */
 @Slf4j
 @RestController
-@RequestMapping(value = "/file")
+@RequestMapping
 public class FileController {
 
     private static final String folder = "/Users/ivy/temp";
 
-    @PostMapping
+    @PostMapping("/file")
     public FileInfo upload(MultipartFile file) throws IOException {
         log.info(file.getName());
         log.info(file.getOriginalFilename());
@@ -33,7 +33,7 @@ public class FileController {
         return new FileInfo(localFile.getAbsolutePath());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/file/{id}")
     public void download(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
         try (InputStream inputStream = new FileInputStream(new File(folder, id + ".txt"));
              OutputStream outputStream = response.getOutputStream()) {

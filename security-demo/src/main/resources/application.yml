@@ -22,3 +22,16 @@ spring:
 #      name: ivy
 #      password: aaa
 
+
+swagger:
+  title: Security demo Application API
+  description: Security demo API documentation
+  version: 0.0.1
+  defaultIncludePattern: /.*
+  termsOfServiceUrl:
+  contactName:
+  contactUrl:
+  contactEmail:
+  license:
+  licenseUrl:
+

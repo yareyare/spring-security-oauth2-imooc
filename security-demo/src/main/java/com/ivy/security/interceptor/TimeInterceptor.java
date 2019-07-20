@@ -14,9 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author ivy on 2019-07-14.
+ * 除了声明为Component之外还需要 @Configuration 见WebConfig.java
  */
+
 @Slf4j
-@Component //除了声明为Component之外还需要 @Configuration 见WebConfig.java
+@Component
 public class TimeInterceptor implements HandlerInterceptor {
 
     @Override

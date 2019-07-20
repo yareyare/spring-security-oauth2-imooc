@@ -13,22 +13,16 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-
-//import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-//import org.apache.commons.lang3.builder.ToStringStyle;
-//import org.springframework.data.domain.Pageable;
-//import org.springframework.data.domain.Sort;
-//import org.springframework.data.web.PageableDefault;
-
 /**
  * @author ivy on 2019-07-11.
  */
 @Slf4j
 @RestController
+@RequestMapping
 public class UserController {
 
     //BindingResult 要结合 @Valid 一起使用
-    @PostMapping
+    @PostMapping("/users")
     public User createUser(@Valid @RequestBody User user, BindingResult errors) throws JsonProcessingException {
         if (errors.hasErrors()) {
             errors.getAllErrors().stream().forEach(error -> log.info(error.toString()));
@@ -69,7 +63,7 @@ public class UserController {
 //    }
 
     @JsonView(User.UserDetailView.class)
-    @GetMapping(value = "/user/{id:\\d+}")
+    @GetMapping(value = "/users/{id:\\d+}")
     public User getUser(@PathVariable String id) {
 
         //抛出异常后，interceptor postHandle() 将不会执行
