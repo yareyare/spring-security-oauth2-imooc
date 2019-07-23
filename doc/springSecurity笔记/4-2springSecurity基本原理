@@ -1,0 +1,20 @@
+1.引入spring-security依赖
+2.配置最基本的springSecurity配置项，如下
+
+@Configuration
+public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+//        http.formLogin()
+          http.httpBasic() //基于basic的登录页面
+                  .and()
+
+                .authorizeRequests()
+                .anyRequest()
+                .authenticated(); //所有的请求都需要认证
+    }
+}
+
+备注：启动项目后，登录用户名默认是user, 密码会在启动日志中找到：
+Using generated security password: 2563ef7a-ed83-4f4d-a332-756d2e6a3c13

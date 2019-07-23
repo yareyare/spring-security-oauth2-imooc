@@ -6,6 +6,7 @@ package com.ivy.security.controller.config;
 import com.ivy.security.controller.filter.TimeFilter;
 import com.ivy.security.interceptor.TimeInterceptor;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -16,7 +17,7 @@ import java.util.List;
 /**
  * @author ivy on 2019-07-14.
  */
-//@Configuration
+@Configuration
 public class WebConfig extends WebMvcConfigurerAdapter implements WebMvcConfigurer {
 
     //    @Autowired
