@@ -17,10 +17,10 @@ spring:
 #  session:
 #    timeout: 600
 
-#  security:
-#    user:
-#      name: ivy
-#      password: aaa
+  security:
+    user:
+      name: ivy
+      password: aaaaaa
 
   main:
     allow-bean-definition-overriding: true
