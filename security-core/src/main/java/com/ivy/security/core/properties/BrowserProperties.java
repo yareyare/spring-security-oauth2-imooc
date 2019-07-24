@@ -12,5 +12,5 @@ import lombok.Data;
 public class BrowserProperties {
 
     // 指定默认值/imooc-login.html
-    private String loginPage;//= "/imooc-login.html" ;
+    private String loginPage = "/imooc-login.html";
 }
