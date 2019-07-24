@@ -19,4 +19,6 @@ public class BrowserProperties {
     // 指定默认值/imooc-login.html
 >>>>>>> 4e75cf9878ccf6d121ef07003a4256d43ac1c27c
     private String loginPage = "/imooc-login.html";
+
+    private LoginType loginType = LoginType.JSON;
 }
