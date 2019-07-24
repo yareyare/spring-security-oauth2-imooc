@@ -3,6 +3,7 @@
  */
 package com.ivy.security.browser;
 
+import com.ivy.security.browser.authentication.MyAuthenticationFailureHandler;
 import com.ivy.security.browser.authentication.MyAuthenticationSuccessHandler;
 import com.ivy.security.core.properties.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,9 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private MyAuthenticationSuccessHandler myAuthenticationSuccessHandler;
 
+    @Autowired
+    private MyAuthenticationFailureHandler myAuthenticationFailureHandler;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin()
@@ -29,6 +33,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/authentication/require")
                 .loginProcessingUrl("/authentication/form")
                 .successHandler(myAuthenticationSuccessHandler)
+                .failureHandler(myAuthenticationFailureHandler)
                 .and()
 
                 .authorizeRequests()
