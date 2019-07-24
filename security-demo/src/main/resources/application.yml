@@ -37,3 +37,4 @@ swagger:
   license:
   licenseUrl:
 
+demo.security.browser.loginPage: /demo-signin.html
