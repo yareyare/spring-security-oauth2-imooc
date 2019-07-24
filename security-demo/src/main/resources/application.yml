@@ -37,4 +37,9 @@ swagger:
   license:
   licenseUrl:
 
-#demo.security.browser.loginPage: /demo-signin.html
+demo:
+  security:
+    browser:
+      loginType: REDIRECT
+#      loginPage: /demo-signin.html
+
