@@ -26,8 +26,9 @@ public class ValidateController {
 
     private SessionStrategy sessionStrategy = new HttpSessionSessionStrategy();
 
+    // 使用接口的方式注入
     @Autowired
-    private ImageCodeGenerator imageCodeGenerator;
+    private ValidateCodeGenerator imageCodeGenerator;
 
     @GetMapping("/code/image")
     public void createCode(HttpServletRequest request, HttpServletResponse response) throws Exception {

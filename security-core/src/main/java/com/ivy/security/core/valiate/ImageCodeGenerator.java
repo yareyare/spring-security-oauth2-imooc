@@ -6,7 +6,6 @@ package com.ivy.security.core.valiate;
 import com.ivy.security.core.properties.SecurityProperties;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.ServletRequestUtils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,9 +15,9 @@ import java.util.Random;
 
 /**
  * @author ivy on 2019-07-25.
+ * 不使用@Component 和 @Autowire 为了实现灵活的构建ValidateCodeGenerator的bean eg：ValidateCodeBeanConfig.java 和 DemoImageCodeGenerator.java
  */
 @Data
-@Component
 public class ImageCodeGenerator implements ValidateCodeGenerator {
 
     @Autowired
