@@ -40,6 +40,13 @@ swagger:
 demo:
   security:
     browser:
-      loginType: REDIRECT
+      loginType: JSON
+    #      loginType: REDIRECT
 #      loginPage: /demo-signin.html
+    code:
+      image:
+        width: 80
+        height: 20
+        fontSize: 40
+        length: 4
 

@@ -6,10 +6,12 @@ package com.ivy.security.browser;
 import com.ivy.security.browser.authentication.MyAuthenticationFailureHandler;
 import com.ivy.security.browser.authentication.MyAuthenticationSuccessHandler;
 import com.ivy.security.core.properties.SecurityProperties;
+import com.ivy.security.core.valiate.ValidateCodeFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
  * @author ivy on 2019-07-22.
@@ -26,10 +28,15 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private MyAuthenticationFailureHandler myAuthenticationFailureHandler;
 
-    //自定义登录成功处理器和登录失败处理器
+    /**
+     * 自定义登录成功处理器和登录失败处理器
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin()
+        ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
+        validateCodeFilter.setAuthenticationFailureHandler(myAuthenticationFailureHandler);
+        http.addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
+                .formLogin()
 //        http.httpBasic()
                 .loginPage("/authentication/require")
                 .loginProcessingUrl("/authentication/form")
@@ -40,6 +47,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/authentication/require",
                         "/error",
+                        "/code/image",
                         securityProperties.getBrowser().getLoginPage()).permitAll()
                 .anyRequest()
                 .authenticated() //需要认证
