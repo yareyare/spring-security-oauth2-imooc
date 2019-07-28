@@ -41,13 +41,13 @@ demo:
   security:
     browser:
       loginType: JSON
-    #      loginType: REDIRECT
+#      loginType: REDIRECT
 #      loginPage: /demo-signin.html
     code:
       image:
         width: 80
         height: 20
         fontSize: 40
-        length: 6
-        url: /user,/user/*
+        length: 4
+#        url: /authentication/form,/user,/user/*  #必须要有验证码的路径
 

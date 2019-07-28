@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author ivy on 2019-07-25.
  */
 @Slf4j
-@Component("imageCodeGenerator")
+//@Component("imageCodeGenerator")
 public class DemoImageCodeGenerator implements ValidateCodeGenerator {
 
     @Override

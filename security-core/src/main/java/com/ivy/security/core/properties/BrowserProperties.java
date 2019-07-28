@@ -17,4 +17,9 @@ public class BrowserProperties {
     private String loginPage = "/imooc-login.html";
 
     private LoginType loginType = LoginType.JSON;
+
+    /**
+     * Session超时时间 默认一小时
+     * */
+    private int rememberMeSeconds = 3600;
 }
